@@ -35,7 +35,7 @@ public class PlayerSkills : MonoBehaviour
     Vector3 hitTarget;
     RaycastHit hit;
     RaycastHit enemyHit;
-    Ray ray;
+    Ray shootRay;
 
     [Header("快跑")]
     public CinemachineFreeLook cam1;
@@ -60,6 +60,7 @@ public class PlayerSkills : MonoBehaviour
     [Header("眩晕")]
     public SkillButtonController vertigoButton;
     public GameObject vertigoObj;
+    public float vertigoShootTime;
     public float vertigoCDTime;
     public float createDis;
     public float vertigoSpeed;
@@ -220,8 +221,8 @@ public class PlayerSkills : MonoBehaviour
     void Shooting()
     {
         Vector2 point = new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
-        ray = Camera.main.ScreenPointToRay(point);
-        Physics.Raycast(ray, out hit);
+        shootRay = Camera.main.ScreenPointToRay(point);
+        Physics.Raycast(shootRay, out hit);
         if(hit.transform != null)
         {
             
@@ -254,8 +255,8 @@ public class PlayerSkills : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(transform.position, ray.origin + ray.direction * shootLength, Color.blue);
-            hitTarget = ray.origin + ray.direction * shootLength;
+            Debug.DrawLine(transform.position, shootRay.origin + shootRay.direction * shootLength, Color.blue);
+            hitTarget = shootRay.origin + shootRay.direction * shootLength;
             canShoot = false;
         }
     }
@@ -309,9 +310,9 @@ public class PlayerSkills : MonoBehaviour
             else //���ƶ�����
             {
                 //��ͷָ����˲��
-                if(ray.direction.y > 0)
+                if(shootRay.direction.y > 0)
                 {
-                    rushVec = Vector3.Normalize(new Vector3(playerController.moveDir.x, ray.direction.y, playerController.moveDir.z));
+                    rushVec = Vector3.Normalize(new Vector3(playerController.moveDir.x, shootRay.direction.y, playerController.moveDir.z));
                 }
                 else
                 {
@@ -330,9 +331,10 @@ public class PlayerSkills : MonoBehaviour
             vertigoButton.isSkill = true;
 
             //����һ������
-            var moveDir = Vector3.Normalize(ray.direction);
+            var moveDir = Vector3.Normalize(shootRay.direction);
             var tempVertigo = Instantiate(vertigoObj, transform.position + new Vector3(moveDir.x * createDis, 2, moveDir.z * createDis), Quaternion.identity);
-            tempVertigo.GetComponent<VertigoController>().moveForce = ray.direction;
+
+            StartCoroutine(ShootVertigo(tempVertigo));
         }
     }
 
@@ -403,8 +405,8 @@ public class PlayerSkills : MonoBehaviour
 
     bool WallCheck()
     {
-        Ray wallRay = new Ray(transform.position, new Vector3(playerController.moveDir.x, ray.direction.y, playerController.moveDir.z));
-        Debug.DrawRay(transform.position, new Vector3(playerController.moveDir.x, ray.direction.y, playerController.moveDir.z));
+        Ray wallRay = new Ray(transform.position, new Vector3(playerController.moveDir.x, shootRay.direction.y, playerController.moveDir.z));
+        Debug.DrawRay(transform.position, new Vector3(playerController.moveDir.x, shootRay.direction.y, playerController.moveDir.z));
         if (Physics.Raycast(wallRay, out wallHit))
         {
             //��ý���
@@ -422,6 +424,13 @@ public class PlayerSkills : MonoBehaviour
 
         var tempBullet = Instantiate(trackObj, transform.position + new Vector3(0, 2, 0), rotation);
         tempBullet.GetComponent<TrackBulletController>().Target = enemyObjs[i].transform;
+    }
+
+    IEnumerator ShootVertigo(GameObject vertigoObj)
+    {
+        yield return new WaitForSeconds(vertigoShootTime);
+
+        vertigoObj.GetComponent<VertigoController>().moveForce = Vector3.Normalize(hitTarget - vertigoObj.transform.position) * vertigoSpeed;
     }
 
     void UnTrack()

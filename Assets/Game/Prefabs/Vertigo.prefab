@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2499901030821358151}
   - component: {fileID: 7991725756698566133}
   - component: {fileID: 9202786009624969213}
+  - component: {fileID: 2448270277308642226}
   m_Layer: 0
   m_Name: VertigoVFX
   m_TagString: Untagged
@@ -111,6 +112,21 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2448270277308642226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300293343194717000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b346356f903e9488a22dc82b14c9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopTime: 5
+  useFast: 1
+  useDestroy: 1
 --- !u!1 &8344516204890630043
 GameObject:
   m_ObjectHideFlags: 0
