@@ -18,6 +18,7 @@ public class VertigoController : MonoBehaviour
 
     [Header("伤害")]
     public GameObject PopupDamage;
+    public GameObject VertigoAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,8 @@ public class VertigoController : MonoBehaviour
                     CreateDamageVal(hitCollider.transform.position, attackVal);
                 }
             }
+            
+            Instantiate(VertigoAttack, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
 
