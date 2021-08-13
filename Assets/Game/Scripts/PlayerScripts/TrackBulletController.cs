@@ -50,6 +50,8 @@ public class TrackBulletController : MonoBehaviour
 
     private void Update()
     {
+
+
         float deltaTime = Time.deltaTime;
         lifeTime += deltaTime;
 
