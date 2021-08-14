@@ -51,6 +51,8 @@ public class PlayerSkills : MonoBehaviour
     public float rushDis;
     public float rushSpeed;
     public float rushMaxTime = 0.2f;
+    public GameObject startObj;
+    public GameObject endObj;
     float rushTimer;
     float rushTime = 0;
     bool canRush = false;
@@ -186,6 +188,7 @@ public class PlayerSkills : MonoBehaviour
             {
                 //��������ģ��
                 playerObj.SetActive(false);
+                Instantiate(startObj, transform.position, Quaternion.identity);
                 rushTime += Time.deltaTime;
             }
             else if (rushTime > 0 && rushTime < rushMaxTime)
@@ -208,7 +211,7 @@ public class PlayerSkills : MonoBehaviour
                 playerObj.SetActive(true);
                 rushTime = 0;
                 canRush = false;
-                canRunning = 1;
+                canRunning = 0;
             }
         }
     }

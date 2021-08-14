@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class TrackBulletController : MonoBehaviour
 {
-    [SerializeField, Tooltip("���ת���ٶ�")]
-    private float MaximumRotationSpeed = 120.0f;
-
-    [SerializeField, Tooltip("���ٶ�")]
-    private float AcceleratedVeocity = 12.8f;
-
-    [SerializeField, Tooltip("����ٶ�")]
-    private float MaximumVelocity = 30.0f;
-
-    [SerializeField, Tooltip("��������")]
-    private float MaximumLifeTime = 4f;
-
-    [SerializeField, Tooltip("������ʱ��")]
-    private float AccelerationPeriod = 0.5f;
+    [SerializeField, Tooltip("移动与旋转")]
+    public float MaximumRotationSpeed = 120.0f;
+    public float AcceleratedVeocity = 12.8f;
+    public float MaximumVelocity = 30.0f;
+    public float MaximumLifeTime = 4f;
+    public float AccelerationPeriod = 0.5f;
 
     [HideInInspector]
     public Transform Target = null;        // Ŀ��
@@ -32,7 +24,8 @@ public class TrackBulletController : MonoBehaviour
     float RotationSpeed;
 
     [Header("伤害")]
-    public GameObject PopupDamage;
+    public GameObject popupDamage;
+    public GameObject explosion;
 
     private void Start()
     {
@@ -45,6 +38,7 @@ public class TrackBulletController : MonoBehaviour
     private void Explode()
     {
         // �����ɾ���������壬��ʱ�������Ѿ�ɢȥ������ɾ��������
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -106,12 +100,13 @@ public class TrackBulletController : MonoBehaviour
             other.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
             CreateDamageVal(other.transform.position, attackValue);
         }
+        
         Explode();
     }
 
     void CreateDamageVal(Vector3 pos, int value)
     {
-        GameObject mObject = (GameObject)Instantiate(PopupDamage, pos, Quaternion.identity);
+        GameObject mObject = (GameObject)Instantiate(popupDamage, pos, Quaternion.identity);
         mObject.GetComponent<AttackValue>().Value = value;
         mObject.GetComponent<AttackValue>().mTarget = pos;
     }
