@@ -77,12 +77,12 @@ public class PlayerSkills : MonoBehaviour
     public float trackSpeed;
     public float trackValue;
     public float trackTempTimer = 1;
-    public float trackNum = 20;
-    int putTrack = 0;
+    public float traceNum = 20;
+    int putTrace = 0;
     int enemyNums = 0;
     int indexNum = 0;
     float trackTimer;
-    bool isTrack = false;
+    bool isTrace = false;
     List<GameObject> enemyObjs = new List<GameObject>();
 
     [Header("伤害")]
@@ -180,7 +180,7 @@ public class PlayerSkills : MonoBehaviour
         {
             CanShoot();
         }
-        Track();
+        Trace();
 
         if (canRush)
         {
@@ -209,6 +209,7 @@ public class PlayerSkills : MonoBehaviour
             {
                 //��ʾ����ģ��
                 playerObj.SetActive(true);
+                Instantiate(endObj, transform.position, Quaternion.identity);
                 rushTime = 0;
                 canRush = false;
                 canRunning = 0;
@@ -349,44 +350,44 @@ public class PlayerSkills : MonoBehaviour
             trackButton.isSkill = true;
 
             //����һ�ΰ���Rʱ����������
-            if (putTrack == 0 && !isTrack)
+            if (putTrace == 0 && !isTrace)
             {
-                putTrack = 1;
-                isTrack = true;
+                putTrace = 1;
+                isTrace = true;
                 Debug.Log("open");
             }
         }
     }
 
-    void Track()
+    void Trace()
     {
-        if (Input.GetKeyDown(KeyCode.R) && putTrack == 1 && !isTrack)
+        if (Input.GetKeyDown(KeyCode.R) && putTrace == 1 && !isTrace)
         {
-            putTrack = 2;
+            putTrace = 2;
             Debug.Log("shoot");
         }
 
-        if (putTrack == 1)
+        if (putTrace == 1)
         {
             //��ý���
-            if (enemyHit.transform != null && enemyNums < trackNum)
+            if (enemyHit.transform != null && enemyNums < traceNum)
             {
                 if(enemyHit.transform.tag == "Enemy")
                 {
-                    if (!enemyHit.transform.gameObject.GetComponent<EnemyStatus>().isTrack)
+                    if (!enemyHit.transform.gameObject.GetComponent<EnemyStatus>().isTrace)
                     {
-                        enemyHit.transform.gameObject.GetComponent<EnemyStatus>().isTrack = true;
+                        enemyHit.transform.gameObject.GetComponent<EnemyStatus>().isTrace = true;
                         enemyObjs.Add(enemyHit.transform.gameObject);
                     }
                 }
             }
-            isTrack = false;
+            isTrace = false;
         }
-        else if (putTrack == 2)
+        else if (putTrace == 2)
         {
             //���䵼��
             indexNum = 0;
-            for (int i = 0; i < trackNum; i++)
+            for (int i = 0; i < traceNum; i++)
             {
                 if (indexNum < enemyObjs.Count)
                 {
@@ -402,7 +403,7 @@ public class PlayerSkills : MonoBehaviour
             }
 
             Invoke("UnTrack", 5f);
-            putTrack = 0;
+            putTrace = 0;
         }
     }
 
@@ -442,7 +443,7 @@ public class PlayerSkills : MonoBehaviour
         {
             if(enemyObjs[i] != null)
             {
-                enemyObjs[i].GetComponent<EnemyStatus>().isTrack = false;
+                enemyObjs[i].GetComponent<EnemyStatus>().isTrace = false;
             }
         }
 

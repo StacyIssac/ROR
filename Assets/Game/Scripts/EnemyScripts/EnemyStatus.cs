@@ -36,7 +36,7 @@ public class EnemyStatus : MonoBehaviour
 
     [Header("导弹锁定")]
     public GameObject trackObj;
-    public bool isTrack = false;
+    public bool isTrace = false;
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +86,7 @@ public class EnemyStatus : MonoBehaviour
         }
 
         //如果被导弹瞄准
-        if(isTrack)
+        if(isTrace)
         {
             trackObj.SetActive(true);
         }
