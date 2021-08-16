@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GlitchController : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class GlitchController : MonoBehaviour
         {
             if(transform.localScale.y < 1)
             {
-                transform.localScale += new Vector3(0, 0.05f, 0);
+                transform.localScale += new Vector3(0.05f, 0.05f, 0);
             }
             else
             {
@@ -74,10 +75,6 @@ public class GlitchController : MonoBehaviour
             }
 
             timer += Time.deltaTime;
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
 }

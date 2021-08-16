@@ -17,21 +17,24 @@ public class StarshipController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) < checkDis)
+        if(player != null)
         {
-            player.GetComponent<PlayerRayController>().canOpen = true;
-        }
-        else
-        {
-            player.GetComponent<PlayerRayController>().canOpen = false;
+            if(Vector3.Distance(transform.position, player.transform.position) < checkDis)
+            {
+                player.GetComponent<PlayerRayController>().canOpen = true;
+            }
+            else
+            {
+                player.GetComponent<PlayerRayController>().canOpen = false;
+            }
         }
     }
 
     void ToHideCursor()
     {
-        //Òþ²ØÊó±ê
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //Cursor.visible = false;
-        //Ëø¶¨Êó±ê
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Cursor.lockState = CursorLockMode.Locked;
     }
 }

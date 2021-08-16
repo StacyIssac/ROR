@@ -6,6 +6,7 @@ public class PlayerRayController : MonoBehaviour
 {
     public GameObject screem;
     public GameObject EText;
+    public GameObject cam;
 
     [HideInInspector]
     public bool canOpen = false;
@@ -53,6 +54,9 @@ public class PlayerRayController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             screem.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            cam.SetActive(false);
+            gameObject.GetComponent<PlayerController>().enabled = false;
         }
     }
 }
