@@ -43,9 +43,9 @@ public class EnemyStatus : MonoBehaviour
     {
         HP = maxHP;
         behaviorTree = GetComponent<BehaviorTree>();
-        SharedGameObject temp = (SharedGameObject)GameObject.FindGameObjectWithTag("Player");
-        behaviorTree.SetVariable("Player", temp);
         player = GameObject.FindGameObjectWithTag("Player");
+        SharedGameObject temp = (SharedGameObject)player;
+        behaviorTree.SetVariable("Player", temp);
     }
 
     // Update is called once per frame
