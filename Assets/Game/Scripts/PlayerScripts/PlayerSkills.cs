@@ -88,6 +88,8 @@ public class PlayerSkills : MonoBehaviour
     [Header("伤害")]
     public GameObject popupDamage;
     public GameObject attackObj;
+    public Image attackImage1, attackImage2;
+    public float imageAlpha;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +107,7 @@ public class PlayerSkills : MonoBehaviour
         rushButton.skillCDTime = rushCDTime;
         vertigoButton.skillCDTime = vertigoCDTime;
         trackButton.skillCDTime = trackCDTime;
+        imageAlpha = attackImage1.color.a;
     }
 
     // Update is called once per frame
@@ -457,5 +460,12 @@ public class PlayerSkills : MonoBehaviour
         GameObject mObject = (GameObject)Instantiate(popupDamage, pos, Quaternion.identity);
         mObject.GetComponent<AttackValue>().Value = value;
         mObject.GetComponent<AttackValue>().mTarget = pos;
+    }
+
+    public void IsAttack(int attackVal)
+    {
+        HP -= attackVal;
+        attackImage1.color = new Color(attackImage1.color.r, attackImage1.color.g, attackImage1.color.b, imageAlpha);
+        attackImage2.color = new Color(attackImage2.color.r, attackImage2.color.g, attackImage2.color.b, imageAlpha);
     }
 }

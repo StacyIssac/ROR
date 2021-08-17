@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour
 
     public void BackToMain()
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(1);
     }
 

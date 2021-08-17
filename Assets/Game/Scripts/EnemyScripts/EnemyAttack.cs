@@ -50,7 +50,7 @@ public class EnemyAttack : Action
             if (attackTime <= 0)
             {
                 Debug.Log("attack");
-                player.GetComponent<PlayerSkills>().HP -= attackVal;
+                player.GetComponent<PlayerSkills>().IsAttack(attackVal);
                 attackTime = Random.Range(maxAttackTime, minAttackTime);
             }
             else

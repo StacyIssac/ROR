@@ -245,6 +245,9 @@ MonoBehaviour:
   traceNum: 20
   popupDamage: {fileID: 7934445329318654401, guid: 4588463e33a0abe40bdbead1af294e2a, type: 3}
   attackObj: {fileID: 2099368744044385349, guid: 329d1a7f740c5e442a1c7511a7fa6150, type: 3}
+  attackImage1: {fileID: 0}
+  attackImage2: {fileID: 0}
+  imageAlpha: 0.5
 --- !u!1 &4094645842912256862
 GameObject:
   m_ObjectHideFlags: 0

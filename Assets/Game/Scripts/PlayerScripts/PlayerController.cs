@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
             jumpCount--;
             jumpPressed = false;
         }
-
+        
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
 

@@ -31,7 +31,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerSkills>().HP -= attackVal;
+            other.gameObject.GetComponent<PlayerSkills>().IsAttack(attackVal);
         }
         Destroy(this.gameObject);
     }

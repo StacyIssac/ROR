@@ -738,9 +738,6 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.12f1c1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>Library\ScriptAssemblies\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Graphs">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.12f1c1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
     </Reference>
