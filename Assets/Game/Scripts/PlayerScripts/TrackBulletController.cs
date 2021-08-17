@@ -91,18 +91,34 @@ public class TrackBulletController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        // ��������ײ����ը
-        if(other.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyStatus>().HP -= attackValue;
-            other.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
-            CreateDamageVal(other.transform.position, attackValue);
+            collision.gameObject.gameObject.GetComponent<EnemyStatus>().HP -= attackValue;
+            collision.gameObject.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
+            CreateDamageVal(collision.gameObject.transform.position, attackValue);
         }
-        
+        else
+        {
+            Debug.Log('?');
+        }
+
         Explode();
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    // ��������ײ����ը
+    //    if(other.tag == "Enemy")
+    //    {
+    //        other.gameObject.GetComponent<EnemyStatus>().HP -= attackValue;
+    //        other.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
+    //        CreateDamageVal(other.transform.position, attackValue);
+    //    }
+        
+    //    Explode();
+    //}
 
     void CreateDamageVal(Vector3 pos, int value)
     {

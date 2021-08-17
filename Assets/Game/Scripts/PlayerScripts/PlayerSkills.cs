@@ -180,6 +180,10 @@ public class PlayerSkills : MonoBehaviour
         {
             CanShoot();
         }
+        if (Input.GetMouseButtonDown(0) && hitTarget != null)
+        {
+            Instantiate(attackObj, hitTarget, Quaternion.identity);
+        }
         Trace();
 
         if (canRush)
@@ -229,7 +233,6 @@ public class PlayerSkills : MonoBehaviour
         Physics.Raycast(shootRay, out hit);
         if(hit.transform != null)
         {
-            
             hitTarget = hit.point;
             //��ý���
             if (hit.transform.CompareTag("Enemy"))
@@ -279,7 +282,6 @@ public class PlayerSkills : MonoBehaviour
             enemyHit.transform.gameObject.GetComponent<EnemyStatus>().HP -= shootValue;
             enemyHit.transform.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
             CreateDamageVal(hitTarget, (int)shootValue);
-            Instantiate(attackObj, hitTarget, Quaternion.identity);
         }
 
         //����ʱ��ϱ���״̬
