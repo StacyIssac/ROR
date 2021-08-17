@@ -4,32 +4,20 @@ using UnityEngine;
 
 public class PlayerRayController : MonoBehaviour
 {
-    public GameObject screem;
-    public GameObject EText;
-    public GameObject cam;
-
-    [HideInInspector]
-    public bool canOpen = false;
-
     RaycastHit hit;
     Ray shootRay;
-    bool openScreem = false;
+    StarshipController starshipContr;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        starshipContr = GameObject.FindGameObjectWithTag("GameController").GetComponent<StarshipController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         RayShoot();
-
-        if(openScreem && canOpen)
-        {
-            OpenScreem();
-        }
     }
 
     void RayShoot()
@@ -42,21 +30,12 @@ public class PlayerRayController : MonoBehaviour
         {
             if (hit.transform.CompareTag("Screem"))
             {
-                openScreem = true;
+                starshipContr.openScreem = true;
             }
-        }
-    }
-
-    void OpenScreem()
-    {
-        EText.SetActive(true);
-
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            screem.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            cam.SetActive(false);
-            gameObject.GetComponent<PlayerController>().enabled = false;
+            else
+            {
+                starshipContr.openScreem = false;
+            }
         }
     }
 }

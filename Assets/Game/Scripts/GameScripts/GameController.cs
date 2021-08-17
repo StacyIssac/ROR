@@ -63,7 +63,12 @@ public class GameController : MonoBehaviour
 
     public void BackToMain()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    public void EscGame()
+    {
+        Application.Quit();
     }
 
     void ToHideCursor()
