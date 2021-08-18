@@ -26,7 +26,6 @@ public class PlayerSkills : MonoBehaviour
     public int energy = 0;
 
     [Header("攻击")]
-    public SkillButtonController shootButton;
     public float shootValue = 10f;
     public float shootRange = 5f;
     public float shootLength = 10f;
@@ -110,7 +109,6 @@ public class PlayerSkills : MonoBehaviour
         rushButton.skillCDTime = rushCDTime;
         vertigoButton.skillCDTime = vertigoCDTime;
         trackButton.skillCDTime = trackCDTime;
-        shootButton.skillCDTime = shootCDTime;
         imageAlpha = attackImage1.color.a;
     }
 
@@ -195,7 +193,6 @@ public class PlayerSkills : MonoBehaviour
         if(Input.GetMouseButton(0) && hitTarget!= null && shootTimer < 0)
         {
             shootTimer = shootCDTime;
-            shootButton.isSkill = true;
             Instantiate(attackObj, hitTarget, Quaternion.identity);
 
             if(canShoot)
