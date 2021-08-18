@@ -213,11 +213,13 @@ MonoBehaviour:
   exp: 0
   level: 1
   energy: 0
+  shootButton: {fileID: 0}
   shootValue: 10
   shootRange: 3
   shootLength: 60
   capsuleLength: 1
   height: 3
+  shootCDTime: 0.2
   cam1: {fileID: 0}
   playerObj: {fileID: 4094645842315334233}
   runningValue: 20

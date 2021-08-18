@@ -4223,7 +4223,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635378061}
-  m_LocalRotation: {x: 0.14239584, y: 0.000000019041288, z: -0.000000002739314, w: 0.9898098}
+  m_LocalRotation: {x: 0.14239584, y: -0.000000019041288, z: 0.000000002739314, w: 0.9898098}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5959,6 +5959,10 @@ PrefabInstance:
       propertyPath: shootButton
       value: 
       objectReference: {fileID: 2099978332}
+    - target: {fileID: 4094645842415247319, guid: dde56a6e08cc9c24395183cd09d5dee9, type: 3}
+      propertyPath: shootCDTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4094645842415247319, guid: dde56a6e08cc9c24395183cd09d5dee9, type: 3}
       propertyPath: trackButton
       value: 
