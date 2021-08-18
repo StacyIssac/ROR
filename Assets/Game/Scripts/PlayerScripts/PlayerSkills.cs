@@ -26,11 +26,14 @@ public class PlayerSkills : MonoBehaviour
     public int energy = 0;
 
     [Header("攻击")]
+    public SkillButtonController shootButton;
     public float shootValue = 10f;
     public float shootRange = 5f;
     public float shootLength = 10f;
     public float capsuleLength = 0.1f;
     public float height;
+    public float shootCDTime = 0.5f;
+    float shootTimer;
     bool canShoot;
     Vector3 hitTarget;
     RaycastHit hit;
@@ -107,6 +110,7 @@ public class PlayerSkills : MonoBehaviour
         rushButton.skillCDTime = rushCDTime;
         vertigoButton.skillCDTime = vertigoCDTime;
         trackButton.skillCDTime = trackCDTime;
+        shootButton.skillCDTime = shootCDTime;
         imageAlpha = attackImage1.color.a;
     }
 
@@ -181,12 +185,30 @@ public class PlayerSkills : MonoBehaviour
 
         if(canShoot)
         {
-            CanShoot();
+            if (enemyHit.collider != null)
+            {
+                //׼����׼������ʾHP
+                enemyHit.transform.GetComponent<EnemyStatus>().canSeeHP = true;
+            }
         }
-        if (Input.GetMouseButtonDown(0) && hitTarget != null)
+
+        if(Input.GetMouseButton(0) && hitTarget!= null && shootTimer < 0)
         {
+            shootTimer = shootCDTime;
+            shootButton.isSkill = true;
             Instantiate(attackObj, hitTarget, Quaternion.identity);
+
+            if(canShoot)
+            {
+                CanShoot();
+            }
         }
+        else
+        {
+            shootTimer -= Time.deltaTime;
+        }
+
+
         Trace();
 
         if (canRush)
@@ -273,19 +295,11 @@ public class PlayerSkills : MonoBehaviour
 
     void CanShoot()
     {
-        if(enemyHit.collider != null)
-        {
-            //׼����׼������ʾHP
-            enemyHit.transform.GetComponent<EnemyStatus>().canSeeHP = true;
-        }
-
-        //������
-        if (Input.GetMouseButtonDown(0))
-        {
-            enemyHit.transform.gameObject.GetComponent<EnemyStatus>().HP -= shootValue;
-            enemyHit.transform.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
-            CreateDamageVal(hitTarget, (int)shootValue);
-        }
+        
+        
+        enemyHit.transform.gameObject.GetComponent<EnemyStatus>().HP -= shootValue;
+        enemyHit.transform.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
+        CreateDamageVal(hitTarget, (int)shootValue);
 
         //����ʱ��ϱ���״̬
         canRunning = -1;
