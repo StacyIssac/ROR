@@ -35,7 +35,7 @@ public class BoxController : MonoBehaviour
         }
         else
         {
-            //OpenBox();
+            OpenBox();
             priceTag.SetActive(false);
             buying.SetActive(false);
             Destroy(this);
@@ -74,6 +74,6 @@ public class BoxController : MonoBehaviour
     void OpenBox()
     {
         var pos = Vector3.Normalize(player.transform.position - transform.position);
-        Instantiate(item, pos * 2, Quaternion.identity);
+        Instantiate(item, pos * 2 + transform.position, Quaternion.identity);
     }
 }

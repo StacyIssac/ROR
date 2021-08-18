@@ -292,8 +292,6 @@ public class PlayerSkills : MonoBehaviour
 
     void CanShoot()
     {
-        
-        
         enemyHit.transform.gameObject.GetComponent<EnemyStatus>().HP -= shootValue;
         enemyHit.transform.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
         CreateDamageVal(hitTarget, (int)shootValue);

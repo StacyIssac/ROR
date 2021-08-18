@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priceTag: {fileID: 8153073346124397045}
   box: {fileID: 6068817658407969643}
-  item: {fileID: 0}
+  item: {fileID: 5765853409827919839, guid: b35fd378006a4cf489afaae29f9cbc31, type: 3}
   price: 25
   boxType: 0
   priceApearDis: 20

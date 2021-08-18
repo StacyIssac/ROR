@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4094645842415247325}
   - component: {fileID: 4094645842415247324}
   - component: {fileID: 4094645842415247319}
+  - component: {fileID: 6810167339589615806}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -212,8 +213,7 @@ MonoBehaviour:
   HPValAdd: 30
   exp: 0
   level: 1
-  energy: 0
-  shootButton: {fileID: 0}
+  energy: 30
   shootValue: 10
   shootRange: 3
   shootLength: 60
@@ -221,7 +221,7 @@ MonoBehaviour:
   height: 3
   shootCDTime: 0.2
   cam1: {fileID: 0}
-  playerObj: {fileID: 4094645842315334233}
+  playerObj: {fileID: 0}
   runningValue: 20
   rushButton: {fileID: 0}
   rushCDTime: 7
@@ -249,7 +249,20 @@ MonoBehaviour:
   attackObj: {fileID: 2099368744044385349, guid: 329d1a7f740c5e442a1c7511a7fa6150, type: 3}
   attackImage1: {fileID: 0}
   attackImage2: {fileID: 0}
-  imageAlpha: 0.5
+  imageAlpha: 0
+--- !u!114 &6810167339589615806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094645842415247326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6df109b52bbd96458112418db49c770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCount: 10
 --- !u!1 &4094645842912256862
 GameObject:
   m_ObjectHideFlags: 0
