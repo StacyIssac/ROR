@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &377170766910262638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 929142397561919219}
+  m_Layer: 0
+  m_Name: FollowTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &929142397561919219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377170766910262638}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 1, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094645842415247312}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4094645842315334233
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +162,7 @@ Transform:
   - {fileID: 4094645842315334232}
   - {fileID: 4094645844374202818}
   - {fileID: 4094645842914160374}
+  - {fileID: 929142397561919219}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,7 +252,7 @@ MonoBehaviour:
   height: 3
   shootCDTime: 0.2
   cam1: {fileID: 0}
-  playerObj: {fileID: 0}
+  playerObj: {fileID: 4094645842315334233}
   runningValue: 20
   rushButton: {fileID: 0}
   rushCDTime: 7
@@ -239,6 +270,7 @@ MonoBehaviour:
   vertigoValue: 30
   vertigoRadius: 10
   trackButton: {fileID: 0}
+  traceShootPos: {fileID: 929142397561919219}
   trackObj: {fileID: 4968511643598964979, guid: 315d04031e4d779498202513045f3963, type: 3}
   trackCDTime: 20
   trackSpeed: 0
@@ -262,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6df109b52bbd96458112418db49c770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCount: 10
+  bagController: {fileID: 11400000, guid: 552faccb56a6c51448f4d5b197d4441f, type: 2}
 --- !u!1 &4094645842912256862
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,6 +60,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\IsName.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Renderer\IsVisible.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CircleCollider2D\GetRadius.cs" />
+    <Compile Include="Assets\Game\Scripts\PropScripts\BagController.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetMute.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Composites\Sequence.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CapsuleCollider\GetDirection.cs" />
@@ -156,9 +157,11 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\SharedTransformsToTransformList.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\GetAngularDrag.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedQuaternion.cs" />
+    <Compile Include="Assets\Game\Scripts\PropScripts\Slot.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\SetLayerWeight.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Physics\Raycast.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\CompareSharedVector2.cs" />
+    <Compile Include="Assets\Game\Scripts\PropScripts\InventoryManager.cs" />
     <Compile Include="Assets\Behavior Designer Movement\Scripts\Tasks\MoveTowards.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\GetDrag.cs" />
     <Compile Include="Assets\Behavior Designer Movement\Scripts\Movement.cs" />
@@ -171,6 +174,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Light\SetCookie.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\SetStartRotation.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector3\GetVector2.cs" />
+    <Compile Include="Assets\Game\Scripts\PlayerScripts\FollowController.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\Distance.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Light\SetShadowSoftness.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\GetRightVector.cs" />
@@ -187,6 +191,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Timeline\Pause.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\SetEmissionRate.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Input\GetKey.cs" />
+    <Compile Include="Assets\Game\Scripts\PlayerScripts\PlayerItemController.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\GetLocalPosition.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Quaternion\Lerp.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\SetPlaybackSpeed.cs" />
@@ -632,7 +637,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\LookAt.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\ClampMagnitude.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\NavMeshAgent\IsStopped.cs" />
-    <Compile Include="Assets\Game\Scripts\PlayerScripts\PlayerItemController.cs" />
+    <Compile Include="Assets\Game\Scripts\PropScripts\Item.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Behavior Designer\Runtime\BehaviorDesigner.Runtime.dll" />

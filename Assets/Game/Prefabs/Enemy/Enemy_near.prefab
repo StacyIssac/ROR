@@ -414,7 +414,7 @@ MonoBehaviour:
   hasAttack: 0
   hasVertigo: 0
   trackObj: {fileID: 5639202154172830611}
-  isTrack: 0
+  isTrace: 0
 --- !u!136 &5639202154079362733
 CapsuleCollider:
   m_ObjectHideFlags: 0

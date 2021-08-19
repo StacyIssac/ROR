@@ -67,6 +67,9 @@ MonoBehaviour:
   boxType: 0
   priceApearDis: 20
   buyingDis: 5
+  itemControllers:
+  - {fileID: 11400000, guid: feb376102688e53479b5f5f7fc8bb348, type: 2}
+  - {fileID: 11400000, guid: 8f61ffce1739de04c93848630a2d8f3c, type: 2}
 --- !u!135 &4541386390633728620
 SphereCollider:
   m_ObjectHideFlags: 0

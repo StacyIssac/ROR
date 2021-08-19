@@ -12,6 +12,8 @@ public class BoxController : MonoBehaviour
     public int boxType;
     public float priceApearDis;
     public float buyingDis;
+    public List<ItemController> itemControllers = new List<ItemController>();
+
     GameObject player;
     GameObject buying;
     bool isOpen;
@@ -74,6 +76,8 @@ public class BoxController : MonoBehaviour
     void OpenBox()
     {
         var pos = Vector3.Normalize(player.transform.position - transform.position);
-        Instantiate(item, pos * 2 + transform.position, Quaternion.identity);
+        var tempItem = Instantiate(item, pos * 2 + transform.position, Quaternion.identity);
+        var temp = Random.Range(0, itemControllers.Count);
+        tempItem.GetComponent<Item>().item = itemControllers[temp];
     }
 }

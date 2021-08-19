@@ -74,6 +74,7 @@ public class PlayerSkills : MonoBehaviour
 
     [Header("追踪导弹")]
     public SkillButtonController trackButton;
+    public Transform traceShootPos;
     public GameObject trackObj;
     public float trackCDTime;
     public float trackSpeed;
@@ -440,7 +441,7 @@ public class PlayerSkills : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        var tempBullet = Instantiate(trackObj, transform.position + new Vector3(0, 2, 0), rotation);
+        var tempBullet = Instantiate(trackObj, traceShootPos.position, rotation);
         tempBullet.GetComponent<TrackBulletController>().Target = enemyObjs[i].transform;
     }
 
