@@ -19,6 +19,7 @@ public class VertigoController : MonoBehaviour
     [Header("伤害")]
     public GameObject PopupDamage;
     public GameObject VertigoAttack;
+    public float critChance;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class VertigoController : MonoBehaviour
                 if(hitCollider.tag == "Enemy")
                 {
                     hitCollider.gameObject.GetComponent<EnemyStatus>().hasVertigo = true;
-                    hitCollider.gameObject.GetComponent<EnemyStatus>().HP -= attackVal;
+                    hitCollider.gameObject.GetComponent<EnemyStatus>().IsAttack(attackVal, critChance);
                     CreateDamageVal(hitCollider.transform.position, attackVal);
                 }
             }

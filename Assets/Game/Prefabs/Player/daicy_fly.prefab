@@ -843,16 +843,13 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(201.247849,180.138351)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Follow","NodeData":{"Offset":"(1.39534187,165.581512)"},"ID":1,"Name":"Follow","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FollowTarget","IsShared":true,"GameObjectmValue":0},"SharedFloatmoveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.5},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":10},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":120},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FollowTarget","IsShared":true,"GameObjectmValue":1},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"RotateTarget","IsShared":true,"PropertyMapping":"UnityEngine.Transform/forward","PropertyMappingOwner":2,"Vector3mValue":"(0,0,0)"}]}'
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(201.247849,180.138351)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Follow","NodeData":{"Offset":"(1.39534187,165.581512)"},"ID":1,"Name":"Follow","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FollowTarget","IsShared":true},"SharedFloatmoveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":10},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":120},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":6},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FollowTarget","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"RotateTarget","IsShared":true,"PropertyMapping":"UnityEngine.Transform/forward","Vector3mValue":"(0,0,0)"}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
-        unityObjects:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
+        unityObjects: []
         byteData: 
         byteDataArray: 
       Version: 1.6.8

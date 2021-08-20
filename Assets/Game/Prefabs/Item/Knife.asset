@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f663a75c1c8a8424c820a0320f3b9561, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
+  type: 1
   itemName: "\u96D5\u523B\u5200"
   itemImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemModel: {fileID: 0}

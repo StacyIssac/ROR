@@ -63,16 +63,53 @@ public class PlayerItemController : MonoBehaviour
             case 1:
                 Knife();
                 break;
+            case 2:
+                Chocolate();
+                break;
+            case 3:
+                AirWall();
+                break;
         }
     }
 
     void Clock()
     {
-        playerSkills.shootCDTime -= shootVal;
+        playerSkills.SetShootCDTime(0);
     }
 
     void Knife()
     {
+        playerSkills.SetCritChance(0);
+    }
 
+    void Chocolate()
+    {
+        playerSkills.SetSpeed(0);
+        playerController.SetSpeed(0);
+    }
+
+    void AirWall()
+    {
+        playerController.SetJumpCount();
+    }
+
+    void Scopes()
+    {
+        playerSkills.SetDissolve(0);
+    }
+
+    void Branch()
+    {
+        playerSkills.canCheckEnemyState = true;
+    }
+
+    void Cat()
+    {
+        playerSkills.SetEnergyAdd(0);
+    }
+
+    void Breakf()
+    {
+        playerSkills.SetHP(0);
     }
 }

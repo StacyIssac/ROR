@@ -28,56 +28,62 @@ public class EnemyController : MonoBehaviour
     {
         if(tempTime <= 0)
         {
-            //随机数获得生成敌人数量
-            int enemyCount = Random.Range(maxCount, minCount);
-            //选择怪物生成的种类
-            int temp = Random.Range(0, 2);
-            //用数组存储坐标
-            Vector2[] enemyPos = new Vector2[enemyCount];
-            //循环
-            for (int i = 0; i < enemyCount; i++)
-            {
-                //生成范围为空心圆
-                Vector2 p = Random.insideUnitCircle * maxRange;
-                Vector2 pos = p.normalized * (minRange + p.magnitude);
+            CreateEnermy();
 
-                //判断是否与其余怪物生成地点重合
-                if(i != 0)
-                {
-                    if(!CheckPos(enemyPos, i - 1, pos))
-                    {
-                        i--;
-                        continue;
-                    }
-                }
-                enemyPos[i] = pos;
-
-                //创建射线检测的射线
-                Ray landRayDown = new Ray(new Vector3(pos.x, 20, pos.y), Vector3.down);
-
-                //用射线检测确定地面位置
-                if (Physics.Raycast(landRayDown, out hit))
-                {
-                    if (hit.transform.tag == "Ground")
-                    {
-                        Vector3 pos2 = new Vector3(pos.x, hit.point.y + 2, pos.y) + playerPos.position;
-                        //朝向玩家生成
-                        var rotation = Quaternion.LookRotation(playerPos.position);
-                        //生成怪物
-                        StartCoroutine(Waiting(temp, pos2, rotation));
-                    }
-                }
-                else
-                {
-                    i--;
-                }
-            }
             //随机获得怪物生成间隔时间
             tempTime = Random.Range(maxTime, minTime);
         }
         else
         {
             tempTime -= Time.deltaTime;
+        }
+    }
+
+    public void CreateEnermy()
+    {
+        //随机数获得生成敌人数量
+        int enemyCount = Random.Range(maxCount, minCount);
+        //选择怪物生成的种类
+        int temp = Random.Range(0, 2);
+        //用数组存储坐标
+        Vector2[] enemyPos = new Vector2[enemyCount];
+        //循环
+        for (int i = 0; i < enemyCount; i++)
+        {
+            //生成范围为空心圆
+            Vector2 p = Random.insideUnitCircle * maxRange;
+            Vector2 pos = p.normalized * (minRange + p.magnitude);
+
+            //判断是否与其余怪物生成地点重合
+            if (i != 0)
+            {
+                if (!CheckPos(enemyPos, i - 1, pos))
+                {
+                    i--;
+                    continue;
+                }
+            }
+            enemyPos[i] = pos;
+
+            //创建射线检测的射线
+            Ray landRayDown = new Ray(new Vector3(pos.x, 20, pos.y), Vector3.down);
+
+            //用射线检测确定地面位置
+            if (Physics.Raycast(landRayDown, out hit))
+            {
+                if (hit.transform.tag == "Ground")
+                {
+                    Vector3 pos2 = new Vector3(pos.x, hit.point.y + 2, pos.y) + playerPos.position;
+                    //朝向玩家生成
+                    var rotation = Quaternion.LookRotation(playerPos.position);
+                    //生成怪物
+                    StartCoroutine(Waiting(temp, pos2, rotation));
+                }
+            }
+            else
+            {
+                i--;
+            }
         }
     }
 

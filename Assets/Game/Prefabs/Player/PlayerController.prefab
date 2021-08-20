@@ -222,6 +222,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  jumpMaxCount: 1
   rayLength: 0.5
   maxSlopeAngle: 40
 --- !u!114 &4094645842415247319
@@ -244,15 +245,16 @@ MonoBehaviour:
   HPValAdd: 30
   exp: 0
   level: 1
-  energy: 30
+  energy: 100
   shootValue: 10
   shootRange: 3
   shootLength: 60
   capsuleLength: 1
   height: 3
   shootCDTime: 0.2
+  shootDisDissolve: 1
   cam1: {fileID: 0}
-  playerObj: {fileID: 4094645842315334233}
+  playerObj: {fileID: 0}
   runningValue: 20
   rushButton: {fileID: 0}
   rushCDTime: 7
@@ -270,7 +272,7 @@ MonoBehaviour:
   vertigoValue: 30
   vertigoRadius: 10
   trackButton: {fileID: 0}
-  traceShootPos: {fileID: 929142397561919219}
+  traceShootPos: {fileID: 0}
   trackObj: {fileID: 4968511643598964979, guid: 315d04031e4d779498202513045f3963, type: 3}
   trackCDTime: 20
   trackSpeed: 0
@@ -281,7 +283,8 @@ MonoBehaviour:
   attackObj: {fileID: 2099368744044385349, guid: 329d1a7f740c5e442a1c7511a7fa6150, type: 3}
   attackImage1: {fileID: 0}
   attackImage2: {fileID: 0}
-  imageAlpha: 0
+  imageAlpha: 0.4
+  critChance: 0
 --- !u!114 &6810167339589615806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bagController: {fileID: 11400000, guid: 552faccb56a6c51448f4d5b197d4441f, type: 2}
+  shootVal: 0
 --- !u!1 &4094645842912256862
 GameObject:
   m_ObjectHideFlags: 0

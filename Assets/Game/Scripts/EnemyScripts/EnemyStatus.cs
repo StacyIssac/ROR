@@ -57,7 +57,7 @@ public class EnemyStatus : MonoBehaviour
         if (HP <= 0)
         {
             player.GetComponent<PlayerSkills>().exp += 5;
-            player.GetComponent<PlayerSkills>().energy += 4;
+            player.GetComponent<PlayerSkills>().AddEnergy();
             Destroy(this.gameObject);
         }
         //准心瞄准时显示HP
@@ -102,6 +102,16 @@ public class EnemyStatus : MonoBehaviour
         var bullet = Instantiate(bulletObj, transform.position + dis * 2, Quaternion.identity);
         bullet.GetComponent<BulletController>().speed = bulletSpeed;
         bullet.GetComponent<BulletController>().attackVal = attackVal;
+    }
+
+    public void IsAttack(float val)
+    {
+        HP -= val;
+    }
+
+    public void IsAttack(float val, float critChance)
+    {
+        HP -= val;
     }
 
     IEnumerator HadAttack()

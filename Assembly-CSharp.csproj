@@ -638,6 +638,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\ClampMagnitude.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\NavMeshAgent\IsStopped.cs" />
     <Compile Include="Assets\Game\Scripts\PropScripts\Item.cs" />
+    <Compile Include="Assets\Game\Scripts\GameScripts\AltarController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Behavior Designer\Runtime\BehaviorDesigner.Runtime.dll" />

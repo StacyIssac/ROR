@@ -26,6 +26,7 @@ public class TrackBulletController : MonoBehaviour
     [Header("伤害")]
     public GameObject popupDamage;
     public GameObject explosion;
+    public float critChance;
 
     private void Start()
     {
@@ -95,7 +96,7 @@ public class TrackBulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.gameObject.GetComponent<EnemyStatus>().HP -= attackValue;
+            collision.gameObject.gameObject.GetComponent<EnemyStatus>().IsAttack(attackValue, critChance);
             collision.gameObject.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
             CreateDamageVal(collision.gameObject.transform.position, attackValue);
         }
@@ -106,19 +107,6 @@ public class TrackBulletController : MonoBehaviour
 
         Explode();
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    // ��������ײ����ը
-    //    if(other.tag == "Enemy")
-    //    {
-    //        other.gameObject.GetComponent<EnemyStatus>().HP -= attackValue;
-    //        other.gameObject.GetComponent<EnemyStatus>().hasAttack = true;
-    //        CreateDamageVal(other.transform.position, attackValue);
-    //    }
-        
-    //    Explode();
-    //}
 
     void CreateDamageVal(Vector3 pos, int value)
     {

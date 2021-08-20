@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask groundLayer;
+    public int jumpMaxCount = 1;
     private bool isGround, jumpPressed = false;
     int jumpCount = 0;
 
@@ -64,15 +65,22 @@ public class PlayerController : MonoBehaviour
 
         if (isGround)
         {
-            jumpCount = 1;
+            jumpCount = jumpMaxCount;
         }
+
         if(jumpPressed && isGround)
         {
             rb.velocity += new Vector3(0, jumpSpeed, 0);
             jumpCount--;
             jumpPressed = false;
         }
-        
+        else if (jumpPressed && jumpCount > 1)
+        {
+            rb.velocity += new Vector3(0, jumpSpeed, 0);
+            jumpCount--;
+            jumpPressed = false;
+        }
+
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
 
@@ -119,5 +127,17 @@ public class PlayerController : MonoBehaviour
             }
         }
         return false;
+    }
+
+    //设置移速
+    public void SetSpeed(float val)
+    {
+        moveSpeed += val;
+    }
+
+    //设置跳跃次数
+    public void SetJumpCount()
+    {
+        jumpMaxCount++;
     }
 }
